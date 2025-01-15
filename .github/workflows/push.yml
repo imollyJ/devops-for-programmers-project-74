@@ -37,6 +37,9 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     # 3 Run tests with Docker Compose
+    - name: Debug files
+      run: ls -l
+
     - name: Run tests
       run:  make ci
 
