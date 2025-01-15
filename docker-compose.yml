@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: imollyj/devops-for-programmers-project-74
+    ports:
+      - "8080:8080"
+    container_name: app
+    working_dir: /app
+    command: make test
+    stdin_open: true
+    tty: true
+
