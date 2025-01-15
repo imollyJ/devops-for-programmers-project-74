@@ -19,6 +19,14 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
 
+    - name: Install Docker Compose
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y docker-compose
+
+    - name: Verify Docker Compose Installation
+      run: docker-compose --version
+
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2
 
@@ -30,8 +38,7 @@ jobs:
 
     # 3 Run tests with Docker Compose
     - name: Run tests
-      run: |
-        make ci
+      run:  docker-compose -f docker-compose.yml up --abort-on-container-exit
 
     # 4. Deploy production
     - name: Build and Push Docker Image
