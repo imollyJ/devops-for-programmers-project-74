@@ -38,7 +38,7 @@ jobs:
 
     # 3 Run tests with Docker Compose
     - name: Run tests
-      run:  docker-compose -f docker-compose.yml up --abort-on-container-exit
+      run:  make ci
 
     # 4. Deploy production
     - name: Build and Push Docker Image
