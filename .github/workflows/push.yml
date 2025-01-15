@@ -50,5 +50,5 @@ jobs:
         context: .
         file: Dockerfile.production
         push: true
-        tags: mollyj/devops-for-programmers-project-74:latest
+        tags: imollyj/devops-for-programmers-project-74:latest
 
