@@ -25,11 +25,12 @@ cp .env.example .env
 3. Запустите сервисы:
 docker-compose up
 
-4.Приложение будет доступно по адресу:
+4. Приложение будет доступно по адресу:
 http://localhost:8080
 
 Тесты
 Для запуска тестов выполните следующую команду:
+
 docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
 
 Сборка production-образа
