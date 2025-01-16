@@ -13,3 +13,16 @@ services:
       NODE_ENV: development
     command: make dev
 
+  caddy:
+    image: caddy:latest
+    container_name: caddy
+    ports:
+      - 80:80
+      - 443:443
+      - 443:443/udp
+    volumes:
+      - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+    depends_on:
+      - app
+
+
