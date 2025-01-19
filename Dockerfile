@@ -1,6 +1,6 @@
 FROM node:20.12.2
 
-RUN apk add --no-cache postgresql-client
+RUN apt-get update && apt-get install -y postgresql-client
 
 WORKDIR /app
 
