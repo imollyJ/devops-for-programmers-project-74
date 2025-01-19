@@ -14,7 +14,7 @@ services:
     stdin_open: true
     tty: true
     depends_on:
-      -  db:
+      - db:
         condition: service_healthy
     environment:
       - DATABASE_HOST=${DATABASE_HOST}
