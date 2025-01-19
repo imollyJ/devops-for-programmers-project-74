@@ -13,7 +13,7 @@ services:
       - ./app:/app
     environment:
       NODE_ENV: development
-    command: make dev
+    command: sh -c "until pg_isready -h db -p 5432; do echo waiting for db; sleep 2; done && make test"
 
   caddy:
     image: caddy:latest
