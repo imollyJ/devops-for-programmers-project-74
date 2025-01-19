@@ -4,13 +4,13 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.production
     image: imollyj/devops-for-programmers-project-74
     ports:
       - "8080:8080"
     container_name: app
     working_dir: /app
-    command: make test
+    command: bash -c "sleep 5 && npm test"
     stdin_open: true
     tty: true
     depends_on:
@@ -20,6 +20,7 @@ services:
       - DATABASE_NAME=postgres
       - DATABASE_USERNAME=postgres
       - DATABASE_PASSWORD=password
+      - DATABASE-PORT=5432
     env_file:
       - .env
 
@@ -27,7 +28,7 @@ services:
     image: postgres:latest
     container_name: postgres
     environment:
-      - POSTGRES_DB=app_db
+      - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
     healthcheck:

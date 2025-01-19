@@ -6,14 +6,14 @@ services:
       - db
     build:
       context: .
-      dockerfile: Dockerfile.production
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
     volumes:
       - ./app:/app
     environment:
       NODE_ENV: development
-    command: sh -c "until pg_isready -h db -p 5432; do echo waiting for db; sleep 2; done && make test"
+    command: npm start
 
   caddy:
     image: caddy:latest
@@ -21,7 +21,6 @@ services:
     ports:
       - 80:80
       - 443:443
-      - 443:443/udp
     volumes:
       - ./services/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
     depends_on:
