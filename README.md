@@ -3,7 +3,9 @@
 
 
 DevOps for Programmers Project 74
-Описание
+
+# Описание #
+
 Этот проект разворачивает приложение с использованием Docker и Docker Compose. Реализована поддержка HTTPS и базы данных PostgreSQL. В проекте также настроены тесты и сборка production-образа для развёртывания приложения.
 
 Системные требования
@@ -18,7 +20,7 @@ DevOps for Programmers Project 74
 - Node.js версии 20 или выше (для локального запуска без контейнера)
 
 
-Инструкции по запуску
+# Инструкции по запуску #
 Локальный запуск приложения через Docker Compose
 1. Склонируйте репозиторий:
 
@@ -38,7 +40,7 @@ DevOps for Programmers Project 74
 
 ```http://localhost:8080```
 
-Тесты
+# Тесты #
 Для запуска тестов выполните следующую команду:
 
 ```docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app```
