@@ -21,32 +21,40 @@ DevOps for Programmers Project 74
 Инструкции по запуску
 Локальный запуск приложения через Docker Compose
 1. Склонируйте репозиторий:
-git clone https://github.com/imollyj/devops-for-programmers-project-74.git
-cd devops-for-programmers-project-74
+
+```git clone https://github.com/imollyj/devops-for-programmers-project-74.git```
+
+```cd devops-for-programmers-project-74```
 
 2. Создайте файл .env на основе .env.example:
-cp .env.example .env
+
+```cp .env.example .env```
 
 3. Запустите сервисы:
-docker-compose up
+
+```docker-compose up```
 
 4. Приложение будет доступно по адресу:
-http://localhost:8080
+
+```http://localhost:8080```
 
 Тесты
 Для запуска тестов выполните следующую команду:
 
-docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
+```docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app```
 
 Сборка production-образа
 1. Соберите production-образ:
-docker-compose -f docker-compose.yml build app
+
+```docker-compose -f docker-compose.yml build app```
 
 2. Загрузите образ в Docker Hub:
-docker-compose -f docker-compose.yml push app
+
+```docker-compose -f docker-compose.yml push app```
 
 3. Production-образ доступен на Docker Hub с именем:
-imollyj/devops-for-programmers-project-74:latest
+
+```imollyj/devops-for-programmers-project-74:latest```
 
 4. Для запуска production-образа выполните:
    docker run -p 8080:8080 -e NODE_ENV=production imollyj/devops-for-programmers-project-74:latest
