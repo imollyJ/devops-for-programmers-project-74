@@ -9,24 +9,24 @@ services:
     ports:
       - "8080:8080"
     container_name: app
-    working_dir: /app
     command: bash -c "sleep 5 && npm test"
     depends_on:
       - db
     environment:
-      - DATABASE_HOST=db
-      - DATABASE_NAME=postgres
-      - DATABASE_USERNAME=postgres
-      - DATABASE_PASSWORD=password
-      - DATABASE-PORT=5432
+      DATABASE_HOST: db
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USERNAME: $[DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      DATABASE-PORT: 5432
 
   db:
-    image: postgres:latest
+    image: postgres:16.3
     container_name: postgres
+    restart: unless-stopped
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=password
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
     ports:
       - "5432:5432"
     volumes:
