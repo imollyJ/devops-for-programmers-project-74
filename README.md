@@ -57,4 +57,5 @@ DevOps for Programmers Project 74
 ```imollyj/devops-for-programmers-project-74:latest```
 
 4. Для запуска production-образа выполните:
-   docker run -p 8080:8080 -e NODE_ENV=production imollyj/devops-for-programmers-project-74:latest
+
+```docker run -p 8080:8080 -e NODE_ENV=production imollyj/devops-for-programmers-project-74:latest```
